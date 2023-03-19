@@ -61,3 +61,14 @@ jobs:
         with:
           working_directory: src
           soft_fail: true # do not return an error code if there are failed checks
+
+      - name: Terragrunt Plan
+        run: |
+          cd environments
+          terragrunt run-all plan --terragrunt-non-interactive
+
+      # - name: Terragrunt Apply
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #   run: |
+      #     cd environments
+      #     terragrunt run-all apply --auto-approve --terragrunt-non-interactive

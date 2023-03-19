@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../src"
+  source = "git::https://github.com/devops-sathsara/infrastructure-as-code.git//src?ref=main"
 }
 
 # Find root terragrunt.hcl and inherit its configurations

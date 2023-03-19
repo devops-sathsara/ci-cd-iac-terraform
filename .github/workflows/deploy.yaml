@@ -54,3 +54,10 @@ jobs:
           directory: src
           framework: terraform 
           soft_fail: true # do not return an error code if there are failed checks
+          skip_check: CKV_GCP_38 # skip a specific check_id. can be comma separated list
+
+      - name: Security - Test with TFSec
+        uses: aquasecurity/tfsec-action@v1.0.0
+        with:
+          working_directory: src
+          soft_fail: true # do not return an error code if there are failed checks

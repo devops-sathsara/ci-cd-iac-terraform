@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Run `terraform fmt` on all Terraform files in the repository
+TERRAFORM_FILES=$(git diff --name-only --cached | grep '\.tf$')
+if [ -n "$TERRAFORM_FILES" ]; then
+  terraform fmt -check=true $TERRAFORM_FILES
+  if [ $? -ne 0 ]; then
+    echo "Terraform formatting check failed. Please run 'terraform fmt' on your Terraform files."
+    exit 1
+  fi
+fi
+
+# Run `terraform validate` on the entire Terraform codebase
+cd src
+terraform validate
+if [ $? -ne 0 ]; then
+  echo "Terraform validation check failed. Please run 'terraform validate' on your Terraform codebase."
+  exit 1
+fi
+
+# If all checks pass, allow the commit to be made
+exit 0

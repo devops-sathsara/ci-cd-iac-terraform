@@ -46,3 +46,11 @@ jobs:
         run: |
           cd src
           terraform validate
+
+      - name: Lint - Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: src
+          framework: terraform 
+          soft_fail: true # do not return an error code if there are failed checks

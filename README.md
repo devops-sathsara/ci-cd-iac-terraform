@@ -43,22 +43,22 @@ Implement pre-commit hooks to enforce code quality and best practices. These hoo
 ## CI/CD Pipeline
 The CI/CD pipeline consists of multiple stages to ensure a smooth and controlled deployment process. The stages are as follows:
 
-* Validate: Runs terraform validate to check the syntactical validity of the IaC.
-* Format: Runs terraform fmt to ensure consistent formatting of the IaC files.
-* Lint: Uses Checkov to verify that the IaC follows specific practices and conventions.
-* Secure: Utilizes TFSec to enforce security best practices for the IaC.
-* Test: Executes Terratest to validate the functional correctness of the IaC. **
-* Cost: Utilizes InfraCost to ensure that the infrastructure cost is within the defined limits.
+* **Validate**: Runs terraform validate to check the syntactical validity of the IaC.
+* **Format**: Runs terraform fmt to ensure consistent formatting of the IaC files.
+* **Lint**: Uses Checkov to verify that the IaC follows specific practices and conventions.
+* **Secure**: Utilizes TFSec to enforce security best practices for the IaC.
+* **Test**: Executes Terratest to validate the functional correctness of the IaC. **
+* **Cost**: Utilizes InfraCost to ensure that the infrastructure cost is within the defined limits.
 
 
 ### Format
 Maintain consistent formatting across your IaC files using terraform fmt. This stage automatically formats your Terraform code according to predefined style guidelines, enhancing readability and maintainability.
 
 ```
-- name: Terraform Format
-  run: |
-    cd src
-    terraform fmt -check
+  - name: Terraform Format
+    run: |
+        cd src
+        terraform fmt -check
 ```
 
 ### Validate
@@ -66,10 +66,10 @@ Ensure the syntactical validity of your Infrastructure as Code (IaC) by running 
 
 
 ```
-- name: Terraform Validate
-  run: |
-    cd src
-    terraform validate
+  - name: Terraform Validate
+    run: |
+        cd src
+        terraform validate
 ```
 
 
@@ -108,17 +108,14 @@ Enforce security best practices for your IaC using TFSec. By running TFSec, you 
         soft_fail: true 
 ```
 
-### Test <TODO>
+### Test **
 Validate the functional correctness of your IaC with Terratest. This stage executes automated tests to verify that your infrastructure behaves as expected, ensuring that your deployments meet functional requirements and reducing the risk of issues in production. 
 
-```
-
-```
 
 ### Cost
 Utilize InfraCost to monitor and manage the cost of your infrastructure. This stage helps you ensure that your infrastructure cost remains within the defined limits, preventing unexpected expenses and optimizing resource allocation. This is achieved by integrating the repository with the Infracost GitHub App.
 
-*Feel free to customize and adapt this repository to fit your specific requirements. Happy infrastructure provisioning with Terraform!*
+***Feel free to customize and adapt this repository to fit your specific requirements. Happy infrastructure provisioning with Terraform!***
 
 
 

@@ -43,8 +43,8 @@ Implement pre-commit hooks to enforce code quality and best practices. These hoo
 ## CI/CD Pipeline
 The CI/CD pipeline consists of multiple stages to ensure a smooth and controlled deployment process. The stages are as follows:
 
-* **Validate**: Runs terraform validate to check the syntactical validity of the IaC.
-* **Format**: Runs terraform fmt to ensure consistent formatting of the IaC files.
+* **Format**: Runs `terraform fmt` to ensure consistent formatting of the IaC files.
+* **Validate**: Runs `terraform validate` to check the syntactical validity of the IaC.
 * **Lint**: Uses Checkov to verify that the IaC follows specific practices and conventions.
 * **Secure**: Utilizes TFSec to enforce security best practices for the IaC.
 * **Test**: Executes Terratest to validate the functional correctness of the IaC. **
@@ -97,6 +97,9 @@ This step will additionally upload the found issues to the Security tab of GitHu
     
 ```
 
+![Checkov](./images/checkov.jpg)
+
+
 ### Secure
 Enforce security best practices for your IaC using TFSec. By running TFSec, you can identify potential security vulnerabilities, misconfigurations, or insecure practices in your Terraform code, helping you build a secure infrastructure.
 
@@ -108,12 +111,17 @@ Enforce security best practices for your IaC using TFSec. By running TFSec, you 
         soft_fail: true 
 ```
 
+![TFSec](./images/tfsec.jpg)
+
 ### Test **
 Validate the functional correctness of your IaC with Terratest. This stage executes automated tests to verify that your infrastructure behaves as expected, ensuring that your deployments meet functional requirements and reducing the risk of issues in production. 
 
 
 ### Cost
 Utilize InfraCost to monitor and manage the cost of your infrastructure. This stage helps you ensure that your infrastructure cost remains within the defined limits, preventing unexpected expenses and optimizing resource allocation. This is achieved by integrating the repository with the Infracost GitHub App.
+
+![InfraCost](./images/infracost.jpg)
+
 
 ***Feel free to customize and adapt this repository to fit your specific requirements. Happy infrastructure provisioning with Terraform!***
 

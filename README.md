@@ -4,16 +4,16 @@
 
 
 ## Pre-Requsites
-To use this repository, ensure you have created a GCP Service Account key file and store its content in a ([GitHub action secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)) named GCP_SA_KEY.
+To use this repository, ensure you have created a GCP Service Account key file and store its content in a [GitHub action secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `GCP_SA_KEY`.
 
 ## Features
 
 * Multi-environment, multi-project & multi-region deployment with [Terragrunt](https://terragrunt.gruntwork.io/)
 * Deploy different versions for each environment
 * TF State stored in GCS backend 
-* Save TF plan output to GCS **
+* TF plan output saved to GCS bucket**
 * Pre-commit hooks for validation
-* CI/CD pipeline with multiple stages
+* CI/CD pipeline with multiple validations
 
 
 
@@ -32,7 +32,7 @@ Easily manage and deploy different versions of your infrastructure to specific e
 ###  TF State stored in GCS backend 
 Store your Terraform state files securely and centrally in a Google Cloud Storage (GCS) backend. GCS provides reliable storage, ensuring accessibility to your CI/CD pipeline and Terraform operations from any location.
 
-###  Save TF plan output to GCS **
+###  TF plan output saved to GCS bucket **
 Capture the Terraform plan output and save it to Google Cloud Storage (GCS). This allows you to review and track changes made during the planning phase, ensuring transparency and facilitating collaboration among team members.
 
 ###  Pre-commit hooks for validation
@@ -74,7 +74,7 @@ Ensure the syntactical validity of your Infrastructure as Code (IaC) by running 
 
 
 ### Lint
-Validate that your IaC adheres to specific practices and conventions by utilizing Checkov. This tool analyzes your Terraform code and provides recommendations to ensure compliance with industry best practices, improving the quality and reliability of your infrastructure.
+Validate that your IaC adheres to specific practices and conventions by utilizing [Checkov](https://www.checkov.io/). This tool analyzes your Terraform code and provides recommendations to ensure compliance with industry best practices, improving the quality and reliability of your infrastructure.
 This step will additionally upload the found issues to the Security tab of GitHub
 
 ```
@@ -101,7 +101,7 @@ This step will additionally upload the found issues to the Security tab of GitHu
 
 
 ### Secure
-Enforce security best practices for your IaC using TFSec. By running TFSec, you can identify potential security vulnerabilities, misconfigurations, or insecure practices in your Terraform code, helping you build a secure infrastructure.
+Enforce security best practices for your IaC using TFSec. By running [TFSec](https://github.com/aquasecurity/tfsec), you can identify potential security vulnerabilities, misconfigurations, or insecure practices in your Terraform code, helping you build a secure infrastructure.
 
 ```
   - name: Security - Test with TFSec
@@ -114,14 +114,17 @@ Enforce security best practices for your IaC using TFSec. By running TFSec, you 
 ![TFSec](./images/tfsec.png)
 
 ### Test **
-Validate the functional correctness of your IaC with Terratest. This stage executes automated tests to verify that your infrastructure behaves as expected, ensuring that your deployments meet functional requirements and reducing the risk of issues in production. 
+Validate the functional correctness of your IaC with [Terratest](https://terratest.gruntwork.io/). This stage executes automated tests to verify that your infrastructure behaves as expected, ensuring that your deployments meet functional requirements and reducing the risk of issues in production. 
 
 
 ### Cost
-Utilize InfraCost to monitor and manage the cost of your infrastructure. This stage helps you ensure that your infrastructure cost remains within the defined limits, preventing unexpected expenses and optimizing resource allocation. This is achieved by integrating the repository with the Infracost GitHub App.
+Utilize [InfraCost](https://www.infracost.io/) to monitor and manage the cost of your infrastructure. This stage helps you ensure that your infrastructure cost remains within the defined limits, preventing unexpected expenses and optimizing resource allocation. This is achieved by integrating the repository with the Infracost GitHub App.
 
 ![InfraCost](./images/infracost.png)
 
+
+## Terraform Code
+Terraform code kept as simple as possible since the primary gole of this repository is to demonstrates best practices for managing Terraform code through CI/CD pipeline. 
 
 ***Feel free to customize and adapt this repository to fit your specific requirements. Happy infrastructure provisioning with Terraform!***
 

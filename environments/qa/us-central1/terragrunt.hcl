@@ -11,5 +11,5 @@ inputs = {
   environment   = "qa"
   project_id    = "sathsara-qa"
   region        = "us-central1"
-  machine_type  = "e2-micro"
+  machine_type  = "e2-small"
 }

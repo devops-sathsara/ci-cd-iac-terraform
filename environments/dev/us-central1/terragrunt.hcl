@@ -9,7 +9,7 @@ include {
 
 inputs = {
   environment   = "dev"
-  project_id    = "sathsara-dev"
+  project_id    = "sath-test-dev"
   region        = "us-central1"
   machine_type  = "e2-micro"
 }

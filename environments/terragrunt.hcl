@@ -10,7 +10,7 @@ remote_state {
   config = {
     bucket      = "iac-tf-state-bucket-${local.env}"
     prefix      = "${path_relative_to_include()}/tfstate"
-    project     = "citric-shine-378115"
+    project     = "sath-test-terraform"
     location    = "us-east4"
   }
 
